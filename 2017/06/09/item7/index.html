@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://chenghuifang.github.io/2017/06/09/item7/">
+    
+    
+    <title>你必须要弄明白的几个js概念！ | 程吨吨的博客 | chenghuifang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="javascript">
+    <meta name="description" content="JavaScript数据类型1.Number类型   数值转换：    Number()转型函数，可以用于任何数据类型；    parseInt()，将值转换为整型，用的比较多；    parseFloat()；将值转换为浮点型。2.String类型   字符串转换：    String()转型函数,适用于任何数据类型（null,undefined转换后为null和undefined）；    t">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你必须要弄明白的几个js概念！">
+<meta property="og:url" content="http://chenghuifang.github.io/2017/06/09/item7/index.html">
+<meta property="og:site_name" content="程吨吨的博客">
+<meta property="og:description" content="JavaScript数据类型1.Number类型   数值转换：    Number()转型函数，可以用于任何数据类型；    parseInt()，将值转换为整型，用的比较多；    parseFloat()；将值转换为浮点型。2.String类型   字符串转换：    String()转型函数,适用于任何数据类型（null,undefined转换后为null和undefined）；    t">
+<meta property="og:updated_time" content="2017-06-05T13:07:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你必须要弄明白的几个js概念！">
+<meta name="twitter:description" content="JavaScript数据类型1.Number类型   数值转换：    Number()转型函数，可以用于任何数据类型；    parseInt()，将值转换为整型，用的比较多；    parseFloat()；将值转换为浮点型。2.String类型   字符串转换：    String()转型函数,适用于任何数据类型（null,undefined转换后为null和undefined）；    t">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/favicon.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">程吨吨</h5>
+          <a href="mailto:920047152@qq.com" title="920047152@qq.com" class="mail">920047152@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/3879883747/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">你必须要弄明白的几个js概念！</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">你必须要弄明白的几个js概念！</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-08T23:40:59.966Z" itemprop="datePublished" class="page-time">
+  2017-06-09
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JavaScript数据类型"><span class="post-toc-number">1.</span> <span class="post-toc-text">JavaScript数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#typeof-运算符返回值"><span class="post-toc-number">2.</span> <span class="post-toc-text">typeof 运算符返回值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#instanceof"><span class="post-toc-number">3.</span> <span class="post-toc-text">instanceof</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-item7"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">你必须要弄明白的几个js概念！</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-09 07:40:59" datetime="2017-06-08T23:40:59.966Z"  itemprop="datePublished">2017-06-09</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="JavaScript数据类型"><a href="#JavaScript数据类型" class="headerlink" title="JavaScript数据类型"></a>JavaScript数据类型</h3><p>1.Number类型<br>   数值转换：<br>    Number()转型函数，可以用于任何数据类型；<br>    parseInt()，将值转换为整型，用的比较多；<br>    parseFloat()；将值转换为浮点型。<br>2.String类型<br>   字符串转换：<br>    String()转型函数,适用于任何数据类型（null,undefined转换后为null和undefined）；<br>    toString() （null,defined没有toString()方法）。<br>3.Boolean类型<br>   转换为boolean值:<br>    转型函数Boolean(),将某个值转换为Boolean类型。<br>4.Null类型<br>5.Undefined类型<br>6.Object类型</p>
+<h3 id="typeof-运算符返回值"><a href="#typeof-运算符返回值" class="headerlink" title="typeof 运算符返回值"></a>typeof 运算符返回值</h3><p>可能的字符串有：”number”、”string”、”boolean”、”object”、”function” 和 “undefined”。(typeof null 返回的是object)<br>注意:类型返回值都是字符串、而且都是小写打头<br>     如果我们想要判断一个变量是否存在，可以使用typeof：(不能使用if(a) 若a未声明，则报错)</p>
+<pre><code>表达式               返回值
+typeof undefined           &#39;undefined&#39;
+typeof null               &#39;object&#39;
+typeof true               &#39;boolean&#39;
+typeof 123                 &#39;number&#39;
+typeof &quot;abc&quot;               &#39;string&#39;
+typeof function() {}       &#39;function&#39;
+typeof {}                 &#39;object&#39;
+typeof []                 &#39;object&#39;
+typeof unknownVariable     &#39;undefined&#39;
+</code></pre><h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p> instanceof用于判断一个动态的变量是否是某个对象的实例，instanceof返回的是一个布尔值。</p>
+<pre><code>var b = &#39;123&#39;
+alert(b instanceof String)  //false
+alert(typeof b)  //string
+
+var c = new String(&quot;123&quot;)
+alert(c instanceof String)  //true
+alert(typeof c)  //object
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-06-05T13:07:12.000Z" itemprop="dateUpdated">2017-06-05 21:07:12</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/06/09/item7/" target="_blank" rel="external">http://chenghuifang.github.io/2017/06/09/item7/</a>
+        
+    </div>
+    <footer>
+        <a href="http://chenghuifang.github.io">
+            <img src="/img/favicon.png" alt="程吨吨">
+            程吨吨
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://chenghuifang.github.io/2017/06/09/item7/&title=《你必须要弄明白的几个js概念！》 — 程吨吨的博客&pic=http://chenghuifang.github.io/img/favicon.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenghuifang.github.io/2017/06/09/item7/&title=《你必须要弄明白的几个js概念！》 — 程吨吨的博客&source=一入编程深似海，从此汉子是路人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://chenghuifang.github.io/2017/06/09/item7/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《你必须要弄明白的几个js概念！》 — 程吨吨的博客&url=http://chenghuifang.github.io/2017/06/09/item7/&via=http://chenghuifang.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://chenghuifang.github.io/2017/06/09/item7/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/09/item6/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">解析url</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/09/item8/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">js数组与字符串常用方法总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>程吨吨 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://chenghuifang.github.io/2017/06/09/item7/&title=《你必须要弄明白的几个js概念！》 — 程吨吨的博客&pic=http://chenghuifang.github.io/img/favicon.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenghuifang.github.io/2017/06/09/item7/&title=《你必须要弄明白的几个js概念！》 — 程吨吨的博客&source=一入编程深似海，从此汉子是路人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://chenghuifang.github.io/2017/06/09/item7/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《你必须要弄明白的几个js概念！》 — 程吨吨的博客&url=http://chenghuifang.github.io/2017/06/09/item7/&via=http://chenghuifang.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://chenghuifang.github.io/2017/06/09/item7/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3awY6DMAxF0f7/T9PtjFTCfTathHNZVRoaOF28iWO/Xvg6/lzrv55dZ9/iT7nhkiFDxmMZ5PHr1yJ/PXv19T3BTyNDhowNGOnS66A8e5V1WtbYMmTIkJEunQZ3P6BlyJAhgy/dKYNJcMuQIUMGCUr+MB6p6/u/UovLkCHjgQwel7///JX+hgwZMh7FOMKrf7h/15v8W1OGDBmjGTzg+Lasv7lM30eGDBk7MzoFJClcOQ9tFmXIkLEBoxN5tfvTY7ULngwZMjZmpAMTnYOzNNxlyJCxA4M/hsclP27j4XvxLRkyZIxmpMVnLXxrYU0K4GINLUOGjEcxOgv1WwWcetEolSFDxmhGOuiQRiE/6E9f+uK4TYYMGYMYPOxqh2udTWEQ8TJkyBjNSCOSxCLnpXEc1+IyZMgYxOAFJMfzhkHn84f/HjJkyNiSkRacPEZ5ZqIfToYMGUMZvLDkoxUpKY3705kRGTJkDGXURsFIyzPdPvbvkSFDxmwGb1jyxuS9AxatYQsZMmSMY3QGv/jGsdaKiNuWMmTIGMcontWBIvaGXSppZ8qQIWMo4wgvcpR275EcCm4ZMmSMZnTGxfj4V1oqF4ctZMiQMZpRawD0W4y1oY3iBlGGDBkjGGnw9UtfVGHzn0mGDBkywtGutNlJYD8KXBkyZIxg1IrStKmQjnfIkCFjBwZvBqR4Au6PdMiQIWM2Ix1x4EvUGgPpmjJkyBjNeAPg3EHPBDdMZwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '吨吨去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

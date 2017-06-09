@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://chenghuifang.github.io/2017/06/09/item8/">
+    
+    
+    <title>js数组与字符串常用方法总结 | 程吨吨的博客 | chenghuifang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="javascript">
+    <meta name="description" content="string 常用方法 substring(start开始位置的索引,end结束位置索引)截取的位置不包含结束位置的字符,只写一个参数表示从开始位置截取到最后输入负值时将负值变为0，哪个较小作为开始位置var str=&amp;#39;abcdefg&amp;#39; str.substring(2) //cdefg str.substring(1,3) //bc str.substring(-1,1) =&amp;gt">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js数组与字符串常用方法总结">
+<meta property="og:url" content="http://chenghuifang.github.io/2017/06/09/item8/index.html">
+<meta property="og:site_name" content="程吨吨的博客">
+<meta property="og:description" content="string 常用方法 substring(start开始位置的索引,end结束位置索引)截取的位置不包含结束位置的字符,只写一个参数表示从开始位置截取到最后输入负值时将负值变为0，哪个较小作为开始位置var str=&amp;#39;abcdefg&amp;#39; str.substring(2) //cdefg str.substring(1,3) //bc str.substring(-1,1) =&amp;gt">
+<meta property="og:updated_time" content="2017-06-05T13:07:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js数组与字符串常用方法总结">
+<meta name="twitter:description" content="string 常用方法 substring(start开始位置的索引,end结束位置索引)截取的位置不包含结束位置的字符,只写一个参数表示从开始位置截取到最后输入负值时将负值变为0，哪个较小作为开始位置var str=&amp;#39;abcdefg&amp;#39; str.substring(2) //cdefg str.substring(1,3) //bc str.substring(-1,1) =&amp;gt">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/favicon.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">程吨吨</h5>
+          <a href="mailto:920047152@qq.com" title="920047152@qq.com" class="mail">920047152@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/3879883747/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">js数组与字符串常用方法总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">js数组与字符串常用方法总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-08T23:40:59.966Z" itemprop="datePublished" class="page-time">
+  2017-06-09
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#string-常用方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">string 常用方法</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-item8"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">js数组与字符串常用方法总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-09 07:40:59" datetime="2017-06-08T23:40:59.966Z"  itemprop="datePublished">2017-06-09</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="string-常用方法"><a href="#string-常用方法" class="headerlink" title="string 常用方法"></a>string 常用方法</h3><ol>
+<li>substring(start开始位置的索引,end结束位置索引)<br>截取的位置不包含结束位置的字符,只写一个参数表示从开始位置截取到最后<br>输入负值时将负值变为0，哪个较小作为开始位置<pre><code>var str=&#39;abcdefg&#39;
+str.substring(2) //cdefg
+str.substring(1,3) //bc
+str.substring(-1,1) =&gt;str.substring(0,1) //a
+str.substring(1,-2) =&gt;str.substring(0,1) //a
+</code></pre></li>
+<li>substr(start开始位置索引,end需要返回的字符个数)<pre><code>var str=&#39;abcdefg&#39;
+str.substr(2) //cdefg
+str.substr(1,1) //b
+</code></pre></li>
+<li>slice(start开始位置索引，end结束位置索引)<br>基本和substring相似,<br>区别在参数为负数时:输入负值时 值与字符串的长度相加<pre><code>var str=&#39;abcdefg&#39; 
+str.slice(2)  //cdefg
+str.slic(1,3) // bc
+str.slice(-1) =&gt;str.slice(6)    //g
+str.slice(1,-2) =&gt;str.slice(1,5)  //bcde
+</code></pre></li>
+<li>charAt(index)<br>返回指定索引位置处的字符。如果超出有效范围(index从0开始)的索引值返回空字符串.<pre><code>var str=&#39;abcdefg&#39;
+str.charAt(2) // c
+</code></pre></li>
+<li>indexOf(string)<br>返回String对象内第一次出现子字符串位置。如果没有找到子字符串，则返回-1。<pre><code>var str=&#39;abcdefga&#39;
+str.indexOf(&#39;b&#39;)  // 1
+str.indexOf(&#39;h&#39;) //-1
+</code></pre></li>
+<li>lastIndexOf(string)<br>倒叙查找,返回String对象内第一次出现子字符串位置。如果没有找到子字符串，则返回-1。<pre><code>var str=&#39;abcdefga&#39;
+str.lastIndexOf(&#39;a&#39;) // 7
+</code></pre></li>
+<li>split(param)<br>将字符串以参数分割为数组<pre><code>var str=&#39;abcadeafg&#39;
+str.split(&#39;a&#39;) //[&quot;&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;fg&quot;]
+</code></pre></li>
+<li>toLowerCase()<br>返回一个字符串，该字符串中的字母被转换成小写。<pre><code>var str = &#39;ABCDEF&#39;
+str.toLowerCase()  // &#39;abcdef&#39;
+</code></pre></li>
+<li>toUpperCase()<br>返回一个字符串，该字符串中的所有字母都被转换为大写字母。<pre><code>var str = &#39;abcEF&#39;
+str.toUpperCase()  // &#39;ABCDEF&#39;
+</code></pre></li>
+<li>match()<br>可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配<pre><code>var str = &#39;1a2b3c4d5e&#39;
+console.log(str.match(&#39;h&#39;))    //返回null
+console.log(str.match(&#39;b&#39;))    //返回[&quot;b&quot;, index: 3, input: &quot;1a2b3c4d5e&quot;]
+console.log(str.match(/b/))    //返回[&quot;b&quot;, index: 3, input: &quot;1a2b3c4d5e&quot;]
+</code></pre></li>
+<li>search(regExp)<br>返回与正则表达式查找内容匹配的第一个字符串的位置。<pre><code>var str = &#39;abcDEF&#39;;
+console.log(str.search(&#39;c&#39;))   //返回2
+console.log(str.search(&#39;d&#39;))   //返回-1
+console.log(str.search(/d/i))  //返回3
+</code></pre></li>
+<li>replace(oldValue,newValue)<br>替换字符串中的元素，返回替换后的字符串,只会替换查找到的第一个元素，即便后面还有相同元素 （传多参数是会报错的哦）<br>```<br>var str = ‘abcdef’<br>console.log(str.replace(‘d’,’t’))  // ‘abctef’<br>console.log(str.replace(‘c’))      // ‘abundefineddfe’ 只传一个会用undefined替换查找到元素</li>
+</ol>
+<p>var str = ‘abcdeabcdeABCDE’<br>console.log(str.replace(/a/gi, ‘$’))   //返回$bcde$bcde$BCDE</p>
+<pre><code>13. trim()
+去除两端的空格，不影响之前的字符串
+</code></pre><p>var arr = ‘  abcdefg     ‘<br>var a = arr.trim()<br>console.log(a)    // ‘abcdefg’<br>console.log(arr)  // ‘  abcdefg     ‘</p>
+<pre><code>14. concat(str)
+连接字符串,原来的字符串不变，生成新的字符串。
+</code></pre><p>var a = ‘abc’<br>var b = a.concat(‘def’)<br>console.log(a)  // ‘abc’<br>console.log(b)  // ‘abcdef’</p>
+<pre><code>### 数组常用的方法
+示例：
+</code></pre><p>var arr = [‘a’,’b’,’c’]</p>
+<pre><code>1. push(item1,item2,item3...)
+在数组的后面添加元素，一次可以传入多个参数.
+元素会根据当前传入的顺序添加到数组的后面。
+1、该方法会改变原数组 2、该方法自身会返回新数组的长度
+</code></pre><p>var result = arr.push(9)<br>console.log(result)  // 4<br>console.log(arr)     // [‘a’,’b’,’c’，9]</p>
+<p>var result1 = arr.push(9,8,7)<br>console.log(result1)   // 7<br>console.log(arr)       // [‘a’,’b’,’c’,9,9,8,7]</p>
+<pre><code>2. unshift(item1,item2,item3...)
+在数组的前面添加元素，一次可以传入多个参数。
+注意：元素会根据当前传入的顺序添加到数组的前面。
+1、该方法会改变原数组 2、该方法自身会返回新数组的长度
+</code></pre><p>var result = arr.unshift(9)<br>console.log(result)  // 4<br>console.log(arr)     // [9,’a’,’b’,’c’]</p>
+<p>var result1 = arr.unshift(9,8,7)<br>console.log(result1)   // 7<br>console.log(arr)       // [9,8,7,9,’a’,’b’,’c’]</p>
+<pre><code>3. shift()
+删除数组中索引为0的元素,不接受传参（传参会被忽略）
+1、该方法会改变原数
+2、该方法自身会返回删除的元素（注意是元素哦，不是索引~）
+3、若数组为空，该方法自身会返undefined
+</code></pre><p>var result = arr.shift()<br>console.log(result)   // ‘a’<br>console.log(arr)      // [‘b’,’c’]</p>
+<pre><code>4. pop()
+删除数组中最后一个元素,不接受传参（传参会被忽略）
+1、该方法会改变原数
+2、该方法自身会返回删除的元素（注意是元素哦，不是索引~）
+3、若数组为空，该方法自身会返undefined
+</code></pre><p>var result = arr.pop()<br>console.log(result)  // ‘c’<br>console.log(arr)     // [‘a’,’b’]</p>
+<pre><code>5. reverse()
+翻转数组，改变原数组,
+不接受参数（只要不传非法值，不会影响其功能）
+</code></pre><p>var result = arr.reverse()<br>console.log(result)// [‘c’,’b’,’a’]<br>console.log(arr)// [‘c’,’b’,’a’]</p>
+<pre><code>6. join()
+将数组转化为字符串，中间以传入的参数连接； 
+注意：传入多个参数时，只会选取第一个参数，若不传参，默认以逗号连接。
+1、该方法不会改变原数组
+2、该方法返回以传入的参数连接的字符串形式的数组元素
+</code></pre><p>var result = arr.join(‘-‘)<br>console.log(result)// ‘a-b-c’<br>console.log(arr)// [‘a’,’b’,’c’]</p>
+<pre><code>7. slice(start,end)
+截取字符串片段，start与end都是索引值，截取的元素范围[start,end),包含start,不包含end
+1、返回一个新数组，不会改变原数组
+</code></pre><p>1、若不传参数，默认截取整个数组，返回新数组<br>var result = arr.slice()<br>console.log(result)// [‘a’,’b’,’c’]<br>console.log(arr)// [‘a’,’b’,’c’]</p>
+<p>2、若传一个参数，表示从当前参数索引开始，截取到数组的最后一个元素<br>var result = arr.slice(2)<br>console.log(result)// [‘c’]<br>console.log(arr)// [‘a’,’b’,’c’]</p>
+<p>3、若传一个负数，表示从数组中倒数这个数的位置，截取到数组的最后一个元素<br>var result = arr.slice(-2)<br>console.log(result)// [‘b’,’c’]<br>console.log(arr)// [‘a’,’b’,’c’]</p>
+<p>4、传两个参数（若起始参数大于结束参数，会返回空数组）<br>var result = arr.slice(1,2)<br>console.log(result)// [‘b’]<br>console.log(arr)// [‘a’,’b’,’c’]</p>
+<p>5、传两个参数，若前一个为正，后一个为负，则会从前一个的索引开始，截取到倒数负数个数的位置<br>var result = arr.slice(1,-1)<br>console.log(result)// [‘b’]<br>console.log(arr)// [‘a’,’b’,’c’]</p>
+<pre><code>8. toString()
+将数组转化为字符串，中间以逗号连接。
+1、该方法不会改变原数组
+2、该方法返回以逗号连接的字符串形式的数组元素
+</code></pre><p>var result = arr.toString()<br>console.log(result)  // ‘a,b,c’<br>console.log(arr)     // [‘a’,’b’,’c’]</p>
+<pre><code>9. concat()
+将两个数组进行连接，同时也可直接传入元素，若是不传参，可以进行数组的复制。
+1、返回一个新数组，不会改变原数组
+</code></pre><p>var result = arr.concat([1,2])<br>console.log(result)  // [‘a’,’b’,’c’,1,2] 传入的数组默认添加到元素的后面<br>console.log(arr)     // [‘a’,’b’,’c’]</p>
+<p>var result = arr.concat(1,2)<br>console.log(result)  // [‘a’,’b’,’c’,1,2] 可以直接传入元素，并以逗号间隔<br>console.log(arr)     // [‘a’,’b’,’c’]</p>
+<p>var result = arr.concat()<br>console.log(result)  // [‘a’,’b’,’c’]<br>console.log(arr)     // [‘a’,’b’,’c’]</p>
+<pre><code>10. splice(start,len,item，item...)
+删除片段，start表示开始索引，len表示删除的个数，item为可选参数，表示删除后插入的元素(在删除的位置开始插入)
+1、该方法会返回删除的元素，同时改变原数组
+</code></pre><p>1、若不传参，则不删除，返回空数组</p>
+<p>2、若传一个参数，则表示从当前参数索引的位置开始，删除到最后一个元素<br>var result = arr.splice(1)<br>console.log(result)  // [‘b’,’c’]<br>console.log(arr)    // [‘a’]</p>
+<p>3、若传一个参数且为负数表示从倒数这个数开始，删除到最后一个元素<br>var result = arr.splice(-1)<br>console.log(result)  // [‘c’]<br>console.log(arr)    // [‘a’,’b’]</p>
+<p>4、传两个参数时，若item为负数，则会返回一个空数组，相当于没有操作</p>
+<p>5、传三个或以上的参数时，从第三元素开始，会被插入到被删除的元素的位置<br>var result = arr.splice(1,1,4,5)<br>console.log(result)// [“b”]<br>console.log(arr)// [“a”, 4, 5, “c”]</p>
+<pre><code>11. indexOf(item,index)
+item表示要查找的元素，index表示查找的起始索引值，
+返回找到的元素的索引值
+1、该方法会改变原数
+</code></pre><p>1、找到后就会停止查找，即便后面还有这个元素<br>var result = arr.indexOf(‘a’,0)<br>console.log(result) // 0<br>console.log(arr)   // [‘a’,’b’,’c’]</p>
+<p>2、若没有找到，则会返回-1<br>var result = arr.indexOf(‘d’,0)<br>console.log(result)  // -1</p>
+<p>3、若index不传参，默认从索引为0的位置查找<br>var result = arr.indexOf(‘a’)<br>console.log(result)  // 0</p>
+<p>4、若index传负数，则从倒数这个数的位置开始向数组后面查找<br>var result = arr.indexOf(‘c’,-2)<br>console.log(result)  // 2</p>
+<pre><code>12. lastIndexOf(item1,item2)
+与indexOf一样，只不过是从后往前找
+13. sort()
+数组排序，默认从小到大,改变原数组
+</code></pre><p>var arr = [‘a’,’b’,’c’，1,2]<br>1、数字优先字母<br>var result = arr.sort()<br>console.log(result)// [1, 2, “a”, “b”, “c”]<br>console.log(arr)// [1, 2, “a”, “b”, “c”]</p>
+<p>2、单词排序按首字母排序，若首字母相同则比较第二个字母，以此类推<br>var arr = [‘ba’,’ce’,’bb’,’aa’]<br>var result = arr.sort()<br>console.log(result)// [“aa”, “ba”, “bb”, “ce”]<br>console.log(arr)// [“aa”, “ba”, “bb”, “ce”]</p>
+<p>3、多位数排序，同样从第一位开始比较，若相同则比较第二位，以此类推<br>var arr = [‘33’,’1’,’123’]<br>var result = arr.sort()<br>console.log(result)// [“1”, “123”, “33”]<br>console.log(arr)// [“1”, “123”, “33”]</p>
+<p>若想真正实现大小排序，该方法接受固定的参数，Array.prototype.sort(function(a,b) {return a-b})<br>形参的顺序为a,b，return a-b 表示升序，b-a表示降序<br>var arr = [‘33’,’1’,’123’]<br>var result = arr.sort(function(a,b){return a-b})<br>console.log(result) // [“1”, “33”, “123”]<br>console.log(arr)    // [“1”, “33”, “123”]<br>```</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-06-05T13:07:12.000Z" itemprop="dateUpdated">2017-06-05 21:07:12</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/06/09/item8/" target="_blank" rel="external">http://chenghuifang.github.io/2017/06/09/item8/</a>
+        
+    </div>
+    <footer>
+        <a href="http://chenghuifang.github.io">
+            <img src="/img/favicon.png" alt="程吨吨">
+            程吨吨
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://chenghuifang.github.io/2017/06/09/item8/&title=《js数组与字符串常用方法总结》 — 程吨吨的博客&pic=http://chenghuifang.github.io/img/favicon.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenghuifang.github.io/2017/06/09/item8/&title=《js数组与字符串常用方法总结》 — 程吨吨的博客&source=一入编程深似海，从此汉子是路人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://chenghuifang.github.io/2017/06/09/item8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js数组与字符串常用方法总结》 — 程吨吨的博客&url=http://chenghuifang.github.io/2017/06/09/item8/&via=http://chenghuifang.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://chenghuifang.github.io/2017/06/09/item8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/09/item7/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">你必须要弄明白的几个js概念！</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/09/item9/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">让我们来谈谈Ajax</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>程吨吨 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://chenghuifang.github.io/2017/06/09/item8/&title=《js数组与字符串常用方法总结》 — 程吨吨的博客&pic=http://chenghuifang.github.io/img/favicon.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenghuifang.github.io/2017/06/09/item8/&title=《js数组与字符串常用方法总结》 — 程吨吨的博客&source=一入编程深似海，从此汉子是路人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://chenghuifang.github.io/2017/06/09/item8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js数组与字符串常用方法总结》 — 程吨吨的博客&url=http://chenghuifang.github.io/2017/06/09/item8/&via=http://chenghuifang.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://chenghuifang.github.io/2017/06/09/item8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aQW7DMAxEUd//0u62RRv5D2kXMPW9CpDE1kuAgUTyOPB1/rrW764///1bn+5zPHHJkCHjtQzy+PTdT8slJPLcP+4jQ4aMDRjprddB+Wkp67SssWXIkCFjvfR7g1uGDBky7g1cckxND6jr4JYhQ4YMEpTkyJoea9eff+QsLkOGjBcyeNX9/18/0t+QIUPGqxhnePW3knet5Mc9ZciQMZrBA46T0s1lLXBlyJCxD+PeMS9yTCXFtTSsZciQsQOjH3n9yO6U/GTIkDGbwRuZ/N3az1FrjsqQIWM3Rn9xaTjyCC4GvQwZMgYx+NfS5fKNYDwEVpvvkCFDxgsZna1Y//jKqRexLkOGjNGM2o14FPJCf7roi62hDBkyBjE4gBfra6W0tOVZ/B9kyJDxWka6UeOPrI2OkfsfXCxDhowRjE4DMt3w3fv6YmsoQ4aMEQwewWlYdwpztSEPGTJkTGWcy4tv9ciRlUcwB8iQIWMHRnrgTLeMtdJ/7TMyZMjYh9Ep8acDE/2mKWoPyJAhYyijE7Xpt3grIu5yyJAhYyiDRGRtzKtWgOM/ugwZMqYyzvCqFcU6jQQU3DJkyBjNqBXL+GPS8bLbhi1kyJAxjlFbIgfXWgXxyJoMGTI2YKTBRw6uPONv+JlkyJAhgwcfLvrzpz8YuDJkyBjKqB1KycgXedbFIVaGDBmjGbwZUCuKpYNicatVhgwZoxnpiENaUEsDOl2JDBkyRjO+ABZS+giDagZ/AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '吨吨去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

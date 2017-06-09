@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://chenghuifang.github.io/2017/06/09/item11/">
+    
+    
+    <title>咱们是怎么跨域的？ ---代理 | 程吨吨的博客 | chenghuifang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="跨域">
+    <meta name="description" content="什么是代理服务器代理服务器，客户机在发送请求时，不会直接发送给目的主机，而是先发送给代理服务器，代理服务接受客户机请求之后，再向主机发出，并接收目的主机返回的数据，存放在代理服务器的硬盘中，再发送给客户机。  为什么要使用代理服务器1）提高访问速度由于目标主机返回的数据会存放在代理服务器的硬盘中，因此下一次客户再访问相同的站点数据时，会直接从代理服务器的硬盘中读取，起到了缓存的作用，尤其对于热门站">
+<meta name="keywords" content="跨域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="咱们是怎么跨域的？ ---代理">
+<meta property="og:url" content="http://chenghuifang.github.io/2017/06/09/item11/index.html">
+<meta property="og:site_name" content="程吨吨的博客">
+<meta property="og:description" content="什么是代理服务器代理服务器，客户机在发送请求时，不会直接发送给目的主机，而是先发送给代理服务器，代理服务接受客户机请求之后，再向主机发出，并接收目的主机返回的数据，存放在代理服务器的硬盘中，再发送给客户机。  为什么要使用代理服务器1）提高访问速度由于目标主机返回的数据会存放在代理服务器的硬盘中，因此下一次客户再访问相同的站点数据时，会直接从代理服务器的硬盘中读取，起到了缓存的作用，尤其对于热门站">
+<meta property="og:updated_time" content="2017-06-06T09:10:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="咱们是怎么跨域的？ ---代理">
+<meta name="twitter:description" content="什么是代理服务器代理服务器，客户机在发送请求时，不会直接发送给目的主机，而是先发送给代理服务器，代理服务接受客户机请求之后，再向主机发出，并接收目的主机返回的数据，存放在代理服务器的硬盘中，再发送给客户机。  为什么要使用代理服务器1）提高访问速度由于目标主机返回的数据会存放在代理服务器的硬盘中，因此下一次客户再访问相同的站点数据时，会直接从代理服务器的硬盘中读取，起到了缓存的作用，尤其对于热门站">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/favicon.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">程吨吨</h5>
+          <a href="mailto:920047152@qq.com" title="920047152@qq.com" class="mail">920047152@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/3879883747/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">咱们是怎么跨域的？ ---代理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">咱们是怎么跨域的？ ---代理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-08T23:40:59.966Z" itemprop="datePublished" class="page-time">
+  2017-06-09
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#什么是代理服务器"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是代理服务器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#为什么要使用代理服务器"><span class="post-toc-number">2.</span> <span class="post-toc-text">为什么要使用代理服务器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#正向代理"><span class="post-toc-number">3.</span> <span class="post-toc-text">正向代理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#反向代理"><span class="post-toc-number">4.</span> <span class="post-toc-text">反向代理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#正向代理和反向代理"><span class="post-toc-number">5.</span> <span class="post-toc-text">正向代理和反向代理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#nginx反向代理服务器的配置："><span class="post-toc-number">6.</span> <span class="post-toc-text">nginx反向代理服务器的配置：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#我对正向代理不够了解，就搜了一下（nginx正向代理配置）"><span class="post-toc-number">7.</span> <span class="post-toc-text">我对正向代理不够了解，就搜了一下（nginx正向代理配置）</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-item11"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">咱们是怎么跨域的？ ---代理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-09 07:40:59" datetime="2017-06-08T23:40:59.966Z"  itemprop="datePublished">2017-06-09</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="什么是代理服务器"><a href="#什么是代理服务器" class="headerlink" title="什么是代理服务器"></a>什么是代理服务器</h4><p>代理服务器，客户机在发送请求时，不会直接发送给目的主机，而是先发送给代理服务器，代理服务接受客户机请求之后，再向主机发出，并接收目的主机返回的数据，存放在代理服务器的硬盘中，再发送给客户机。 </p>
+<h4 id="为什么要使用代理服务器"><a href="#为什么要使用代理服务器" class="headerlink" title="为什么要使用代理服务器"></a>为什么要使用代理服务器</h4><p>1）提高访问速度<br>由于目标主机返回的数据会存放在代理服务器的硬盘中，因此下一次客户再访问相同的站点数据时，会直接从代理服务器的硬盘中读取，起到了缓存的作用，尤其对于热门站点能明显提高请求速度。<br>2）防火墙作用<br>由于所有的客户机请求都必须通过代理服务器访问远程站点，因此可在代理服务器上设限，过滤某些不安全信息。<br>3）通过代理服务器访问不能访问的目标站点</p>
+<p>那什么是正向代理呢，什么是反向代理呢？</p>
+<h4 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h4><p>正向代理 是一个位于客户端和原始服务器(origin server)之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。客户端必须要进行一些特别的设置才能使用正向代理。</p>
+<h4 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h4><p>反向代理正好相反，对于客户端而言它就像是原始服务器，并且客户端不需要进行任何特别的设置。客户端向反向代理的命名空间(name-space)中的内容发送普通请求，接着反向代理将判断向何处(原始服务器)转交请求，并将获得的内容返回给客户端，就像这些内容原本就是它自己的一样。</p>
+<h4 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h4><p>简单的区别方法：正向代理就是我们在浏览器可以设置的代理服务器，主动权在浏览者手里。比如我们有时候要查阅一些资料，被国内墙掉了，这时候我可以在国外的服务器上搭建一个nginx正向代理服务器，然后我们就可以通过浏览器设置代理服务器，来翻墙了。反向代理，是浏览者不知情的，服务器端自己假设的。</p>
+<p>现在许多大型web网站都用到反向代理。除了可以防止外网对内网服务器的恶性攻击、缓存以减少服务器的压力和访问安全控制之外，还可以进行负载均衡，将用户请求分配给多个服务器。<br>Nginx作为近年来较火的反向代理服务器，安装在目的主机端，主要用于转发客户机请求，后台有多个http服务器提供服务，nginx的功能就是把请求转发给后面的服务器，决定哪台目标主机来处理当前请求。<br>咱们使用的是nginx反向代理</p>
+<h4 id="nginx反向代理服务器的配置："><a href="#nginx反向代理服务器的配置：" class="headerlink" title="nginx反向代理服务器的配置："></a>nginx反向代理服务器的配置：</h4><pre><code>    server {
+        listen       8888;
+        server_name  192.168.5.173;
+        client_max_body_size    100m;
+
+        location / {
+            proxy_pass  http://192.168.5.173:8080;
+            proxy_set_header    X-Real-IP   $remote_addr;
+            proxy_set_header    Host    $host;
+            proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for; 
+        }
+        location /ga/ {
+            proxy_pass http://192.168.25.11:3000;
+            proxy_set_header    X-Real-IP   $remote_addr;
+            proxy_set_header    Host    $host;
+            proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for; 
+        }
+        location /auth {
+            proxy_pass http://192.168.25.11:3000;
+            proxy_set_header    X-Real-IP   $remote_addr;
+            proxy_set_header    Host    $host;
+            proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for; 
+        }
+        location /file {
+            proxy_pass http://192.168.25.11:3000;
+            proxy_set_header    X-Real-IP   $remote_addr;
+            proxy_set_header    Host    $host;
+            proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for; 
+        }
+    }
+</code></pre><h4 id="我对正向代理不够了解，就搜了一下（nginx正向代理配置）"><a href="#我对正向代理不够了解，就搜了一下（nginx正向代理配置）" class="headerlink" title="我对正向代理不够了解，就搜了一下（nginx正向代理配置）"></a>我对正向代理不够了解，就搜了一下（nginx正向代理配置）</h4><pre><code>server{  
+        resolver 8.8.8.8;  
+        resolver_timeout 30s;   
+        listen 82;  
+        location / {  
+                proxy_pass http://$http_host$request_uri;  
+                proxy_set_header Host $http_host;  
+                proxy_buffers 256 4k;  
+                proxy_max_temp_file_size 0;  
+                proxy_connect_timeout 30;  
+                proxy_cache_valid 200 302 10m;  
+                proxy_cache_valid 301 1h;  
+                proxy_cache_valid any 1m;  
+        }  
+}
+</code></pre><p>1、不能有hostname。<br>2、必须有resolver, 即dns，即上面的8.8.8.8，超时时间（30秒）可选。<br>3、配置正向代理参数，均是由 Nginx 变量组成。</p>
+<pre><code>proxy_pass $scheme://$host$request_uri;    
+proxy_set_header Host $http_host;
+</code></pre><p>4、配置缓存大小，关闭磁盘缓存读写减少I/O，以及代理连接超时时间。  </p>
+<pre><code>proxy_buffers 256 4k;    
+proxy_max_temp_file_size 0;    
+proxy_connect_timeout 30;
+</code></pre><p>5、配置代理服务器 Http 状态缓存时间。</p>
+<pre><code>proxy_cache_valid 200 302 10m;    
+proxy_cache_valid 301 1h;    
+proxy_cache_valid any 1m;
+</code></pre><p>配置好后，重启nginx，以浏览器为例，要使用这个代理服务器，则只需将浏览器代理设置为<a href="http://+服务器ip地址+:+82（82是刚刚设置的端口号）即可使用了。" target="_blank" rel="external">http://+服务器ip地址+:+82（82是刚刚设置的端口号）即可使用了。</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-06-06T09:10:16.000Z" itemprop="dateUpdated">2017-06-06 17:10:16</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/06/09/item11/" target="_blank" rel="external">http://chenghuifang.github.io/2017/06/09/item11/</a>
+        
+    </div>
+    <footer>
+        <a href="http://chenghuifang.github.io">
+            <img src="/img/favicon.png" alt="程吨吨">
+            程吨吨
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨域/">跨域</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://chenghuifang.github.io/2017/06/09/item11/&title=《咱们是怎么跨域的？ ---代理》 — 程吨吨的博客&pic=http://chenghuifang.github.io/img/favicon.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenghuifang.github.io/2017/06/09/item11/&title=《咱们是怎么跨域的？ ---代理》 — 程吨吨的博客&source=一入编程深似海，从此汉子是路人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://chenghuifang.github.io/2017/06/09/item11/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《咱们是怎么跨域的？ ---代理》 — 程吨吨的博客&url=http://chenghuifang.github.io/2017/06/09/item11/&via=http://chenghuifang.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://chenghuifang.github.io/2017/06/09/item11/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/09/item1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">如何搭建vue框架</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/09/item12/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">获取页面元素的位置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>程吨吨 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://chenghuifang.github.io/2017/06/09/item11/&title=《咱们是怎么跨域的？ ---代理》 — 程吨吨的博客&pic=http://chenghuifang.github.io/img/favicon.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://chenghuifang.github.io/2017/06/09/item11/&title=《咱们是怎么跨域的？ ---代理》 — 程吨吨的博客&source=一入编程深似海，从此汉子是路人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://chenghuifang.github.io/2017/06/09/item11/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《咱们是怎么跨域的？ ---代理》 — 程吨吨的博客&url=http://chenghuifang.github.io/2017/06/09/item11/&via=http://chenghuifang.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://chenghuifang.github.io/2017/06/09/item11/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aO4KDMAwFwNz/0tkLLM6TBAX2uEoBNkOhoM/nE6/vxUquXO95de/niYWBgfFaxne51gfkByf4q9/RS8TAwDiAMdl6HjTXZyXBGgMDA6NHXbPXLwIDAwPjLkb1rjwBxsDAwOglsQl+ErjXQfm2XBwDA+OFjLuSzCd+P9LfwMDAeBXjW1zVIHjXlT/2wcDA2JqRB7h5sSz/9Gw2RDEwMDZlTNLXNSkBJ1dGKSsGBsbWjN54RPVx8wetBuV//jcwMDC2ZuQHJ7x1ub/6BxCdiIGBsSmjOrBVfehqcS3BR1VDDAyM7Ri9sYZqWJwMcES5OAYGxqaMyZjXPKTmaW1hyAwDA2NrRjVcJiF71FltlfYwMDD2ZvRqdXm4zFueo+IdBgbGdoxqyaya3D7RBL2h8oeBgfFaRq9YPx8OS+76sRsGBsbWjF5Zrdd67A2cTcI6BgbGHoxeQ7HXqkxGOpqtUwwMjK0ZvRJ/ckySJPeS2KhqiIGBsR1jMjwxL67N2xIYGBjnMMq3xaMS+edg8souT8TAwDiGMU9Ee73FeaqMgYGxK2MyWlEtiiWfm3m7tNnBwMDAeCGjF+YmY16Tgl1z2AIDA2MLRp40Js3OXkkuD8SXwRcDA+MARi/wrfe5obPay8UxMDCOZySAfJCr+lI+1YfAwMA4kpE3F+cfmnnjEwMD4wRGebghLszlw17VsQ8MDIxzGHnqmATEPMhOhi2aTU0MDIz3Mf4AorJBz9Pse8YAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '吨吨去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
